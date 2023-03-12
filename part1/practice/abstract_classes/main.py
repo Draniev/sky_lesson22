@@ -39,7 +39,75 @@
 
 # код должен выполняться не выбрасывая исключений
 
-# TODO напишите Ваш код здесь
+from abc import ABC, abstractmethod
+
+
+class Transport(ABC):
+    @abstractmethod
+    def start_engine(self):
+        pass
+
+    @abstractmethod
+    def stop_engine(self):
+        pass
+
+    @abstractmethod
+    def move():
+        pass
+
+    @abstractmethod
+    def stop():
+        pass
+
+
+class Car(ABC):
+    def start_engine(self):
+        print('Машина заурчала двигателем')
+
+    def stop_engine(self):
+        print('Машина ухнула еще пара руз и замолчалаол')
+
+    def move():
+        print('Машина едет к месту назначения')
+
+    def stop():
+        print('Машина остановилась')
+
+
+class Boat(ABC):
+    def start_engine(self):
+        print('Катер громко затарахтел')
+
+    def stop_engine(self):
+        print('Двигатель катера чихнул напоследок и заглох')
+
+    def move():
+        print('Катер быстро набирает скорость')
+
+    def stop():
+        print('Катер остановился')
+
+
+class Scooter(ABC):
+    def start_engine(self):
+        print('Мигнул светодиодом')
+
+    def stop_engine(self):
+        print('Мигнул светодиодом дважды')
+
+    def move():
+        print('Прохожие в ужасе разбегаются от очередного камикадзе')
+
+    def stop():
+        print('Торможение об стену прошло успешно')
+
+
+class Person:
+    def use_transport(self, transport: Transport):
+        transport.start_engine()
+        transport.move()
+        transport.stop()
+        transport.stop_engine()
 
 
 # Отрезок кода для самопроверки.
@@ -47,7 +115,7 @@
 if __name__ == '__main__':
     boat = Boat()
     car = Car()
-    kamikadze = Electroscooter()
+    kamikadze = Scooter()
 
     person = Person()
     person.use_transport(boat)
